@@ -1,0 +1,39 @@
+---
+import "../../styles/global.css";
+import socials from "../../data/social.json";
+
+export async function getStaticPaths() {
+	const paths = socials.map(({ site }) => ({ params: { site } }));
+
+	return paths;
+}
+
+const { site } = Astro.params;
+const social = socials.find((s) => s.site === site);
+
+if (!social) {
+	throw new Error(`Social media site "${site}" not found.`);
+}
+
+// Redirect to the social media URL
+Astro.redirect(social.url);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NEFASTIS</title>
+		<meta http-equiv="refresh" content={`1;url=${social.url}`} />
+	</head>
+	<body>
+		<div>
+			<span
+				>redirecting to {site}...
+				<a href={social.url}>click here</a>
+				if you're not getting redirected
+			</span>
+		</div>
+	</body>
+</html>

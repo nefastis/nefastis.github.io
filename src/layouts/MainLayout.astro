@@ -1,0 +1,57 @@
+---
+import "../styles/global.css";
+import "@fontsource/audiowide";
+import "@fontsource/poppins";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NEFASTIS</title>
+	</head>
+	<body>
+		<div class="layout">
+			<header class="site-header">
+				<h1 class="logo">NEFASTIS</h1>
+			</header>
+			<main>
+				<slot />
+			</main>
+			<footer class="site-footer">
+				<p>&copy; {new Date().getFullYear()} Nefastis. All rights reserved.</p>
+			</footer>
+		</div>
+	</body>
+</html>
+
+<style>
+	.logo {
+		font-family: "Audiowide", system-ui;
+		user-select: none;
+	}
+
+	.site-header {
+		display: flex;
+		justify-content: center;
+		padding: 0.8rem;
+	}
+
+	.site-footer {
+		font-family: "Poppins", sans-serif;
+		font-size: 12px;
+	}
+
+	.layout {
+		display: grid;
+		grid-template-rows: auto 1fr auto;
+		width: 100%;
+		height: 100vh;
+		gap: 8px;
+	}
+
+	.layout > main {
+		height: 100%;
+	}
+</style>

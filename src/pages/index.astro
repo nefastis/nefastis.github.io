@@ -1,0 +1,47 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="NEFASTIS">
+	<div class="wrapper">
+		<span class="">
+			I walk the liminal space between chaos, insanity and control.
+		</span>
+
+		<div style="
+		border-top: 1px solid rgba(255, 255, 255, 0.26);
+		width: 100%
+		">
+		</div>
+
+		<div class="links">
+			<a href="/on/github">github</a>
+			<a href="/on/bsky">bksy</a>
+		</div>
+	</div>
+</MainLayout>
+
+<style>
+	.links {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.links > a {
+		width: 100%;
+		color: white;
+		text-decoration: none;
+		text-align: center;
+	}
+
+	.wrapper {
+		display: flex;
+		height: 100%;
+		width: 100%;
+		align-items: center;
+		gap: 1rem;
+		flex-direction: column;
+		padding: 1rem;
+	}
+</style>
